@@ -16,16 +16,18 @@ window.addEventListener("load", () => {
             img.naturalWidth /
             img.naturalHeight;
 
-        const markerWidth = 2;
+        const markerWidth = 1;
+
+        const scale = 2;
 
         plane.setAttribute(
             "width",
-            markerWidth
+            markerWidth * scale
         );
-
+        
         plane.setAttribute(
             "height",
-            markerWidth / aspect
+            (markerWidth / aspect) * scale
         );
 
         console.warn(
