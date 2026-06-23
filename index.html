@@ -1,49 +1,82 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AR.js Marker Demo</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Serpente AR</title>
 
     <link rel="stylesheet" href="style.css">
 
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.4.5/aframe/build/aframe-ar.js"></script>
 </head>
+
 <body>
 
-<div id="info">
-    Aponte a câmera para o marcador Hiro
-</div>
+    <!-- UI Inicial -->
 
-<a-scene
-    embedded
-    vr-mode-ui="enabled: false"
-    renderer="logarithmicDepthBuffer: true;"
-    arjs="trackingMethod: best; sourceType: webcam;">
+    <div id="instructions">
 
-    <a-marker preset="hiro">
+        <h2>Aponte para a figura</h2>
 
-        <a-box
-            position="0 0.5 0"
-            rotation="0 45 0"
-            color="#4CC3D9">
-        </a-box>
+        <img
+            src="src/marker.jpeg"
+            alt="Marcador">
 
-        <a-text
-            value="DORNELLES"
-            align="center"
-            position="0 1.2 0"
-            scale="1 1 1">
-        </a-text>
+    </div>
 
-    </a-marker>
+    <a-scene
+        embedded
+        vr-mode-ui="enabled: false"
+        renderer="logarithmicDepthBuffer: true;"
+        arjs="trackingMethod: best; sourceType: webcam;">
 
-    <a-entity camera></a-entity>
+        <a-assets>
 
-</a-scene>
+            <img
+                id="planeImage"
+                src="src/serpente.jpeg">
 
-<script src="script.js"></script>
+            <audio
+                id="music"
+                src="src/musicBanzeiro.mp3">
+            </audio>
+
+        </a-assets>
+
+        <a-marker
+            id="marker"
+            type="pattern"
+            url="marker.patt">
+
+            <a-plane
+                src="#planeImage"
+                position="0 1 0"
+                rotation="-90 0 0"
+                width="3"
+                height="3">
+            </a-plane>
+
+            <a-entity
+                id="audioEntity"
+                sound="
+                    src: #music;
+                    autoplay: false;
+                    loop: true;">
+            </a-entity>
+
+        </a-marker>
+
+        <a-entity camera></a-entity>
+
+    </a-scene>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
