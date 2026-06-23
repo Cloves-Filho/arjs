@@ -5,6 +5,40 @@ window.addEventListener("load", () => {
     const audioEntity = document.getElementById("audioEntity");
 
     let audioStarted = false;
+    const markerWidth = 1;
+
+
+    const img = document.getElementById("planeImage");
+    const plane = document.getElementById("imagePlane");
+
+    img.addEventListener("load", () => {
+
+        const aspect =
+            img.naturalWidth /
+            img.naturalHeight;
+
+        const markerWidth = 1;
+
+        plane.setAttribute(
+            "width",
+            markerWidth
+        );
+
+        plane.setAttribute(
+            "height",
+            markerWidth / aspect
+        );
+
+        console.warn(
+            "Aspect:",
+            aspect,
+            "Width:",
+            markerWidth,
+            "Height:",
+            markerWidth / aspect
+        );
+    });
+
 
     marker.addEventListener("markerFound", () => {
 
@@ -34,3 +68,25 @@ window.addEventListener("load", () => {
     });
 
 });
+
+const img = document.getElementById("planeImage");
+const plane = document.getElementById("imagePlane");
+
+img.onload = () => {
+
+    const aspect =
+        img.naturalWidth /
+        img.naturalHeight;
+
+    const markerWidth = 1;
+
+    plane.setAttribute(
+        "width",
+        markerWidth
+    );
+
+    plane.setAttribute(
+        "height",
+        markerWidth / aspect
+    );
+};

@@ -4,9 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Serpente AR</title>
 
@@ -24,47 +22,27 @@
 
         <h2>Aponte para a figura</h2>
 
-        <img
-            src="src/marker.jpeg"
-            alt="Marcador">
+        <img src="src/marker.jpeg" alt="Marcador">
 
     </div>
 
-    <a-scene
-        embedded
-        vr-mode-ui="enabled: false"
-        renderer="logarithmicDepthBuffer: true;"
+    <a-scene embedded vr-mode-ui="enabled: false" renderer="logarithmicDepthBuffer: true;"
         arjs="trackingMethod: best; sourceType: webcam;">
 
         <a-assets>
 
-            <img
-                id="planeImage"
-                src="src/serpente.jpeg">
+            <img id="planeImage" src="src/serpente.jpeg">
 
-            <audio
-                id="music"
-                src="src/musicBanzeiro.mp3">
+            <audio id="music" src="src/musicBanzeiro.mp3">
             </audio>
 
         </a-assets>
 
-        <a-marker
-            id="marker"
-            type="pattern"
-            url="src/marker.patt">
+        <a-marker id="marker" type="pattern" url="src/marker.patt">
 
-            <a-plane
-                src="#planeImage"
-                position="0 1 0"
-                rotation="-90 0 0"
-                width="3"
-                height="3">
+            <a-plane id="imagePlane" src="#planeImage" position="0 0.1 0" rotation="-90 0 0">
             </a-plane>
-
-            <a-entity
-                id="audioEntity"
-                sound="
+            <a-entity id="audioEntity" sound="
                     src: #music;
                     autoplay: false;
                     loop: true;">
@@ -79,4 +57,5 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>
