@@ -5,7 +5,6 @@ window.addEventListener("load", () => {
     const audioEntity = document.getElementById("audioEntity");
 
     let audioStarted = false;
-    const markerWidth = 1;
 
 
     const img = document.getElementById("planeImage");
@@ -17,7 +16,7 @@ window.addEventListener("load", () => {
             img.naturalWidth /
             img.naturalHeight;
 
-        const markerWidth = 1;
+        const markerWidth = 2;
 
         plane.setAttribute(
             "width",
